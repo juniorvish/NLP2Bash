@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { role: "user", content: userPrompt },
     ];
 
-    const response = await fetch("/api/convert", {
+    const response = await fetch("http://127.0.0.1:5000/api/convert", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (response.ok) {
       const data = await response.json();
-      const gptMessage = data.gpt_message;
+      const gptMessage = data.bash_command;
       output.textContent = gptMessage;
     } else {
       output.textContent = "Error: Unable to convert command";
