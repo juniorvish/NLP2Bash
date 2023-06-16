@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLP2Bash</title>
+    <link rel="stylesheet" href="static/css/tailwind.css">
+</head>
+<body>
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-4">NLP2Bash</h1>
+        <p class="mb-4">Enter a natural language command to convert it into a bash command:</p>
+        <textarea id="userInput" class="w-full h-32 p-2 border border-gray-300 rounded mb-4" placeholder="Type your command here..."></textarea>
+        <button id="submitBtn" class="bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
+        <h2 class="text-2xl font-bold mt-8 mb-4">Bash Command:</h2>
+        <pre id="bashOutput" class="w-full h-32 p-2 bg-gray-100 rounded"></pre>
+    </div>
+    <script src="static/js/main.js"></script>
+</body>
+</html>
