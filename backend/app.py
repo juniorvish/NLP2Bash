@@ -1,20 +1,21 @@
 import os
 from flask import Flask, request, jsonify
 import openai
+from flask_cors import CORS
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-@app.route("/convert", methods=["POST"])
+@app.route("/api/convert", methods=["POST"])
 def convert():
     data = request.get_json()
-    systemprompt = data["systemprompt"]
-    userprompt = data["userprompt"]
 
-    message = []
-    message.append({"role": "system", "content": systemprompt})
-    message.append({"role": "user", "content": userprompt})
+    message = data["messages"]
 
     response = openai.ChatCompletion.create(
         model="gpt-4",
